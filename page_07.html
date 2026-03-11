@@ -1,0 +1,745 @@
+<!-- PAGE: 제품 (Product) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제품 | 언커먼타올 - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="4년간 5g 단위로 테스트한 216g 뱀부 100% 페이스타월. 500cc 물도 한 방울 흘리지 않는 흡수력, KC 인증 1등급 항균 95%, 6가지 컬러로 만나보세요.">
+  <meta name="keywords" content="언커먼타올, 프리미엄수건, 뱀부타올, 대나무수건, 페이스타월, 습식직조, 항균수건, 혼수수건, 선물수건">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 헤더 */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    .nav-item {
+      position: relative;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    .nav-item.active { color: var(--text-black); font-weight: 600; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      min-width: 160px;
+      padding: 8px 0;
+      margin-top: 8px;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+    .nav-dropdown a:hover { background: var(--bg-light); color: var(--text-black); }
+    .nav-utils {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-utils svg {
+      width: 20px;
+      height: 20px;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* 제품 리스트 섹션 */
+    .product-list-section {
+      padding: 80px 0 120px;
+      background: var(--bg-white);
+    }
+    .product-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .product-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .product-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .product-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* 제품 그리드 */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .product-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .product-img {
+      background: var(--placeholder-bg);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .product-img svg {
+      width: 48px;
+      height: 48px;
+      color: var(--placeholder-icon);
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--text-black);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .product-body {
+      padding: 24px;
+    }
+    .product-color {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .product-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .product-spec {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .product-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .feature-tag {
+      font-size: 12px;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .product-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      flex: 1;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 푸터 */
+    .footer {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--text-black); }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-dark);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links a:hover { color: var(--text-dark); }
+
+    /* TOP 버튼 */
+    .top-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--text-black);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 90;
+    }
+    .top-btn.visible { opacity: 1; }
+    .top-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .mobile-menu-btn svg {
+        width: 24px;
+        height: 24px;
+        color: var(--text-dark);
+      }
+      .product-title { font-size: 28px; }
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <nav class="nav-links">
+          <div class="nav-item">
+            <a href="page_02.html">브랜드</a>
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <div class="nav-item active">
+            <a href="page_07.html">제품</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_08.html">타월 가이드</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_09.html">B2B문의</a>
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="page_11.html">고객 후기</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_12.html">고객센터</a>
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-utils">
+          <i data-lucide="search"></i>
+          <i data-lucide="shopping-cart"></i>
+          <i data-lucide="user"></i>
+          <button class="mobile-menu-btn">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 섹션 0: 페이스타월 상품 리스트 -->
+    <section class="product-list-section">
+      <div class="container">
+        <div class="product-header">
+          <p class="product-label">PRODUCT</p>
+          <h1 class="product-title">뱀부 100% 프리미엄 페이스타월</h1>
+          <p class="product-desc">4년간 5g 단위로 테스트한 216g 최적 그램수. 500cc 물도 한 방울 흘리지 않는 흡수력, 면 대비 2배 속건, KC 인증 1등급 항균 95%. 6가지 컬러와 프리미엄 패키지로 만나보세요.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- 제품 1: Blue Label (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+              <span class="product-badge">베스트셀러</span>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Blue Label</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 2: Mint Stone (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Mint Stone</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 3: Charcoal (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Charcoal</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 4: Ivory (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Ivory</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 5: Beige (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Beige</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 6: Gray (단품) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Gray</p>
+              <h3 class="product-name">페이스타월 (단품)</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">500cc 흡수</span>
+                <span class="feature-tag">항균 95%</span>
+                <span class="feature-tag">2배 속건</span>
+                <span class="feature-tag">KC 1등급</span>
+              </div>
+              <p class="product-price">14,900원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 7: 2P 세트 (Blue Label) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+              <span class="product-badge">추천</span>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Blue Label</p>
+              <h3 class="product-name">페이스타월 2P 세트</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g×2 | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">프리미엄 박스</span>
+                <span class="feature-tag">은방울꽃 리플렛</span>
+                <span class="feature-tag">선물포장</span>
+              </div>
+              <p class="product-price">29,000원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 8: 4P 세트 (혼합 컬러) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+              <span class="product-badge">혼수 추천</span>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Mix Colors</p>
+              <h3 class="product-name">페이스타월 4P 세트</h3>
+              <p class="product-spec">사이즈: 34×80cm | 중량: 216g×4 | 뱀부 100%</p>
+              <div class="product-features">
+                <span class="feature-tag">프리미엄 박스</span>
+                <span class="feature-tag">은방울꽃 리플렛</span>
+                <span class="feature-tag">선물포장</span>
+                <span class="feature-tag">컬러 조합 가능</span>
+              </div>
+              <p class="product-price">56,000원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 제품 9: 선물 세트 (프리미엄 패키지) -->
+          <div class="product-card">
+            <div class="product-img">
+              <i data-lucide="image"></i>
+              <span class="product-badge">럭셔리 패키지</span>
+            </div>
+            <div class="product-body">
+              <p class="product-color">Premium Gift</p>
+              <h3 class="product-name">프리미엄 선물 세트</h3>
+              <p class="product-spec">페이스타월 3P + 민트스톤 전용 박스 + 수작업 라벨</p>
+              <div class="product-features">
+                <span class="feature-tag">루이비통급 패키징</span>
+                <span class="feature-tag">은방울꽃 리플렛</span>
+                <span class="feature-tag">5-6만 원 고급감</span>
+              </div>
+              <p class="product-price">45,000원</p>
+              <div class="product-actions">
+                <a href="#" class="btn btn-primary">구매하기</a>
+                <a href="#" class="btn btn-secondary"><i data-lucide="shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">뱀부 100% 습식 직조 공법으로 만든<br>프리미엄 페이스타월</p>
+          <div class="footer-cert">
+            <i data-lucide="shield-check"></i>
+            <span>KC 인증 1등급</span>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">브랜드</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_04.html">브랜드 여정</a>
+          <a href="page_05.html">소재 이야기</a>
+          <a href="page_06.html">지속가능성</a>
+        </div>
+        <div>
+          <p class="footer-col-title">제품 & 가이드</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+          <a href="page_09.html">대량구매</a>
+          <a href="page_10.html">파트너십</a>
+        </div>
+        <div>
+          <p class="footer-col-title">고객 지원</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Uncommon Towel. All Rights Reserved.</span>
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="top-btn" id="topBtn">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // TOP 버튼
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.classList.add('visible');
+      } else {
+        topBtn.classList.remove('visible');
+      }
+    });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
