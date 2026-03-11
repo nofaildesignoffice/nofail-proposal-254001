@@ -1,0 +1,654 @@
+<!-- PAGE: 브랜드 스토리 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브랜드 스토리 | 언커먼타올 - 4년간의 개발 여정</title>
+  <meta name="description" content="21살부터 14년간 기념품을 만들다, 수건 하나에 4년을 쏟았습니다. 280g까지 올렸다 216g으로 내려온 언커먼타올의 개발 이야기.">
+  <meta name="keywords" content="언커먼타올 스토리, 프리미엄수건 개발, 뱀부수건 브랜드, 수건장인, 언커먼타올, 프리미엄수건, 뱀부타올, 대나무수건">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --bg-black: #1A1A1A;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+    .nav-item {
+      position: relative;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    .nav-item.active { color: var(--text-black); font-weight: 600; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 0;
+      min-width: 180px;
+      margin-top: 12px;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .nav-dropdown a:hover { background: var(--bg-light); color: var(--text-black); }
+    .nav-utils {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-utils svg { width: 20px; height: 20px; color: var(--text-dark); cursor: pointer; }
+    .mobile-menu-btn { display: none; }
+
+    /* Hero Story */
+    .hero-story {
+      padding: 120px 0 80px;
+      background: var(--bg-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-story-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--placeholder-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.3;
+    }
+    .hero-story-bg svg { width: 80px; height: 80px; color: var(--placeholder-icon); }
+    .hero-story-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-story-content h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .hero-story-content p {
+      font-size: 18px;
+      color: var(--text-gray);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .hero-story-body {
+      font-size: 16px;
+      color: var(--text-dark);
+      line-height: 1.9;
+      text-align: left;
+    }
+    .hero-story-body p { margin-bottom: 16px; }
+
+    /* Timeline Section */
+    .timeline-section {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+    .timeline-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 80px;
+    }
+    .timeline-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .timeline-header p {
+      font-size: 17px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+    .timeline-track {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 40px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-default);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 100px;
+      margin-bottom: 48px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: 32px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 3px solid var(--bg-light);
+    }
+    .timeline-year {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+    .timeline-body {
+      max-width: 720px;
+      margin: 60px auto 0;
+      font-size: 16px;
+      color: var(--text-dark);
+      line-height: 1.9;
+    }
+    .timeline-body p { margin-bottom: 16px; }
+
+    /* Closing Section */
+    .closing-section {
+      padding: 100px 0;
+      background: var(--bg-white);
+    }
+    .closing-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .closing-image {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-md);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .closing-image svg { width: 64px; height: 64px; color: var(--placeholder-icon); }
+    .closing-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .closing-content .section-desc {
+      font-size: 17px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .closing-body {
+      font-size: 16px;
+      color: var(--text-dark);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+    .closing-body p { margin-bottom: 16px; }
+    .closing-quote {
+      padding: 24px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--bg-dark);
+      margin-bottom: 32px;
+    }
+    .closing-quote p {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* Footer */
+    .footer {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--text-dark); }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .footer-social svg { width: 20px; height: 20px; color: var(--text-light); cursor: pointer; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-cert {
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Top Button */
+    .top-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 99;
+    }
+    .top-btn.show { opacity: 1; }
+    .top-btn svg { width: 20px; height: 20px; color: #FFFFFF; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .mobile-menu-btn { 
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--text-dark); }
+      
+      .hero-story { padding: 80px 0 60px; }
+      .hero-story-content h1 { font-size: 32px; }
+      .hero-story-content p { font-size: 16px; margin-bottom: 32px; }
+      
+      .timeline-section { padding: 60px 0; }
+      .timeline-header { margin-bottom: 48px; }
+      .timeline-header h2 { font-size: 28px; }
+      .timeline-item { padding-left: 80px; margin-bottom: 40px; }
+      .timeline-line { left: 32px; }
+      .timeline-dot { left: 24px; }
+      
+      .closing-section { padding: 60px 0; }
+      .closing-inner { grid-template-columns: 1fr; gap: 32px; }
+      .closing-content h2 { font-size: 28px; }
+      
+      .footer-grid { 
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .top-btn { bottom: 24px; right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <nav class="nav-menu">
+          <div class="nav-item active">
+            <span>브랜드</span>
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="page_07.html">제품</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_08.html">타월 가이드</a>
+          </div>
+          <div class="nav-item">
+            <span>B2B문의</span>
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="page_11.html">고객 후기</a>
+          </div>
+          <div class="nav-item">
+            <span>고객센터</span>
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-utils">
+          <i data-lucide="search"></i>
+          <i data-lucide="shopping-cart"></i>
+          <i data-lucide="user"></i>
+          <button class="mobile-menu-btn">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Section 1: 시작은 "다 비슷한 수건"에 대한 불만이었어요 -->
+    <section class="hero-story">
+      <div class="hero-story-bg">
+        <i data-lucide="image"></i>
+      </div>
+      <div class="container">
+        <div class="hero-story-content">
+          <h1>14년간 수백 가지 기념품을 만들었어요</h1>
+          <p>그런데 수건은 늘 똑같았어요. '부드럽다'는 말만 반복되는, 그저 그런 수건.</p>
+          <div class="hero-story-body">
+            <p>21살부터 기념품 납품 회사에서 일했어요. 은행, 공공기관, 대학교… 수백 곳에 수천 개를 납품했죠.</p>
+            <p>시계, 텀블러, 보조배터리. 뭐든 만들었지만 '이건 진짜 다르다'고 자부할 수 있는 건 없었어요.</p>
+            <p>어느 날 문득, 매일 아침 얼굴에 닿는 이 수건이 왜 다 똑같을까 의문이 들었어요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 280g까지 올렸다가, 다시 216g으로 내려오기까지 -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="timeline-header">
+          <h2>280g까지 올렸다가, 다시 216g으로 내려왔어요</h2>
+          <p>2021년 여름부터 4년, 수십 번의 실패가 만든 정답.</p>
+        </div>
+
+        <div class="timeline-track">
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2021년 여름</p>
+            <p class="timeline-desc">"시중 수건이 다 똑같다"는 생각에서 첫 샘플 제작 시작</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2022년</p>
+            <p class="timeline-desc">5g 단위로 280g까지 테스트. 무거울수록 좋은 게 아니라는 걸 배움</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2022년 하반기</p>
+            <p class="timeline-desc">12가지 색상 조합 시도. 진한 색은 염색 과정에서 품질이 떨어져 전부 폐기</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2023년</p>
+            <p class="timeline-desc">연한 민트색 특화 결정. 습식 직조 가능한 공장 전국 탐색 (5곳 이하)</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2024년</p>
+            <p class="timeline-desc">70도 습도 유지 습식 직조 공법 확립. 필드 테스트 사용자 100% 재구매</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <p class="timeline-year">2025년</p>
+            <p class="timeline-desc">3만 장 재고 확보, 본격 런칭 준비</p>
+          </div>
+        </div>
+
+        <div class="timeline-body">
+          <p>색상 하나를 정하는 데 1년이 걸렸어요. 민트색 한 톤을 맞추기 위해 염색 공장과 수십 번 오갔어요.</p>
+          <p>습식 직조를 할 수 있는 공장은 전국에 5곳이 안 돼요. 70도 습도를 유지하면서 짜야 섬유가 살아요.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: "이건 달라." 그 한마디가 확신이 됐어요 -->
+    <section class="closing-section">
+      <div class="container">
+        <div class="closing-inner">
+          <div class="closing-image">
+            <i data-lucide="image"></i>
+          </div>
+          <div class="closing-content">
+            <h2>"이건 달라." 그 한마디가 확신이 됐어요</h2>
+            <p class="section-desc">집에서 가장 까다로운 사람의 기준을 통과한 순간, 언커먼타올이 시작됐어요.</p>
+            
+            <div class="closing-body">
+              <p>4년간 만든 샘플을 집에서 직접 썼어요. 아내가 '이건 달라'라고 말한 날, 216g이 확정됐어요.</p>
+              <p>그때부터 정했어요. 한 번 쓰면 다른 수건으로 돌아갈 수 없는, 그런 수건만 만들겠다고.</p>
+              <p>언커먼타올이라는 이름은 거기서 왔어요. 흔하지 않은(Uncommon), 그래서 대체 불가능한 수건.</p>
+            </div>
+
+            <div class="closing-quote">
+              <p>은방울꽃의 꽃말은 '다시 찾은 행복'이에요. 매일 아침 수건을 집어 드는 그 작은 순간이, 누군가에게는 행복의 시작이길 바라요.</p>
+            </div>
+
+            <a href="page_05.html" class="btn btn-primary">
+              소재 이야기 보기
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">흔하지 않은, 대체 불가능한 수건</p>
+          <div class="footer-social">
+            <i data-lucide="instagram"></i>
+          </div>
+          <div class="footer-cert">
+            <i data-lucide="shield-check"></i>
+            <span>KC 인증 1등급</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">브랜드</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_04.html">브랜드 여정</a>
+          <a href="page_05.html">소재 이야기</a>
+          <a href="page_06.html">지속가능성</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">고객 지원</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">제품</p>
+          <a href="page_07.html">제품 보기</a>
+          <a href="page_08.html">타월 가이드</a>
+          <a href="page_09.html">대량구매</a>
+          <a href="page_10.html">파트너십</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Uncommon Towel. All Rights Reserved.</span>
+        <span>개인정보처리방침 | 이용약관</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Top Button -->
+  <div class="top-btn" id="topBtn">
+    <i data-lucide="arrow-up"></i>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Top button
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.classList.add('show');
+      } else {
+        topBtn.classList.remove('show');
+      }
+    });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
