@@ -1,0 +1,790 @@
+<!-- PAGE: 파트너십 (Partnership) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파트너십 | 언커먼타올 - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="언커먼타올과 함께 프리미엄 홈텍스타일 시장을 선도할 파트너를 찾습니다. 유통/입점 채널별 맞춤 협업 모델을 제안합니다.">
+  <meta name="keywords" content="언커먼타올, 프리미엄수건, 뱀부타올, 대나무수건, 페이스타월, 습식직조, 항균수건, 혼수수건, 선물수건, 파트너십, 유통제휴, 입점문의">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --accent: #7CB8B3;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+    input, textarea, select {
+      font-family: 'Pretendard', sans-serif;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 15px;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 버튼 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 공통 텍스트 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* 이미지 플레이스홀더 */
+    .img-placeholder {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .img-placeholder svg {
+      color: var(--placeholder-icon);
+      width: 48px;
+      height: 48px;
+    }
+
+    /* 아이콘 박스 */
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-box svg {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+
+    /* ==================== HEADER ==================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .header-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .header-nav {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-item {
+      position: relative;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      padding: 24px 0;
+    }
+    .nav-item.active { color: var(--text-black); font-weight: 600; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      min-width: 180px;
+      padding: 8px 0;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+      transition: background 0.2s;
+    }
+    .nav-dropdown a:hover { background: var(--bg-light); color: var(--text-black); }
+    .header-utils {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-utils svg {
+      width: 22px;
+      height: 22px;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    .mobile-menu-btn {
+      display: none;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      padding: 120px 0 80px;
+      background: var(--bg-white);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero .section-title { font-size: 42px; }
+
+    /* ==================== PARTNERSHIP MODELS ==================== */
+    .partnership-models {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .model-card {
+      background: var(--bg-white);
+      padding: 32px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .model-card .icon-box { margin-bottom: 20px; }
+    .model-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .model-card-desc {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .model-card-benefit {
+      font-size: 14px;
+      color: var(--text-dark);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .model-card-benefit svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+    }
+
+    /* ==================== REQUIREMENTS ==================== */
+    .requirements {
+      padding: 80px 0;
+    }
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .requirement-card {
+      padding: 32px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+    }
+    .requirement-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .requirement-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .requirement-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+    .requirement-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ==================== DOWNLOAD CTA ==================== */
+    .download-cta {
+      padding: 80px 0;
+      background: var(--bg-dark);
+      text-align: center;
+    }
+    .download-cta .section-title { color: #FFFFFF; }
+    .download-cta .section-desc { color: rgba(255,255,255,0.6); margin: 0 auto 32px; }
+    .download-cta .btn-primary {
+      background: #FFFFFF;
+      color: var(--text-black);
+      border-color: #FFFFFF;
+    }
+
+    /* ==================== INQUIRY FORM ==================== */
+    .inquiry-form {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .form-container {
+      max-width: 720px;
+      margin: 48px auto 0;
+      background: var(--bg-white);
+      padding: 48px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .form-label .required {
+      color: #E74C3C;
+      margin-left: 4px;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-submit {
+      width: 100%;
+      margin-top: 32px;
+    }
+    .form-note {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-company-info {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--text-dark); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-cert {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .cert-badge {
+      width: 60px;
+      height: 60px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* TOP 버튼 */
+    .btn-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--text-black);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 90;
+    }
+    .btn-top.visible { opacity: 1; visibility: visible; }
+    .btn-top svg { width: 20px; height: 20px; }
+
+    /* ==================== 반응형 ==================== */
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .mobile-menu-btn { display: block; }
+      .section-title { font-size: 28px; }
+      .hero { padding: 80px 0 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero .section-title { font-size: 32px; }
+      .models-grid { grid-template-columns: 1fr; }
+      .requirements-grid { grid-template-columns: 1fr; }
+      .form-container { padding: 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .btn-top { bottom: 24px; right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="page_01.html" class="header-logo">UNCOMMON TOWEL</a>
+        <nav class="header-nav">
+          <div class="nav-item">
+            <a href="page_02.html">브랜드</a>
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <a href="page_07.html" class="nav-item">제품</a>
+          <a href="page_08.html" class="nav-item">타월 가이드</a>
+          <div class="nav-item active">
+            <a href="page_09.html">B2B문의</a>
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <a href="page_11.html" class="nav-item">고객 후기</a>
+          <div class="nav-item">
+            <a href="page_12.html">고객센터</a>
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="header-utils">
+          <i data-lucide="search"></i>
+          <i data-lucide="shopping-cart"></i>
+          <i data-lucide="user"></i>
+          <button class="mobile-menu-btn">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 섹션 1: 히어로 -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <p class="section-label">Partnership</p>
+            <h1 class="section-title">프리미엄 홈텍스타일 시장을<br>함께 선도할 파트너를 찾습니다</h1>
+            <p class="section-desc">언커먼타올은 4년간의 제품 개발과 검증을 통해 프리미엄 수건 시장의 새로운 기준을 제시합니다. 유통, 입점, 제휴를 통해 함께 성장할 파트너를 기다립니다.</p>
+          </div>
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 협업 방향 -->
+    <section class="partnership-models">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">Collaboration Models</p>
+          <h2 class="section-title">채널별 맞춤 협업 모델</h2>
+          <p class="section-desc mx-auto">온·오프라인 유통 채널의 특성에 맞춘 다양한 협업 방식을 제안합니다.</p>
+        </div>
+        <div class="models-grid">
+          <div class="model-card">
+            <div class="icon-box"><i data-lucide="store"></i></div>
+            <h3 class="model-card-title">백화점 / 편집샵 입점</h3>
+            <p class="model-card-desc">프리미엄 포지셔닝에 최적화된 패키징과 POP 툴킷을 지원합니다. 시즌별 신제품 및 한정판 콜라보레이션도 가능합니다.</p>
+            <div class="model-card-benefit">
+              <i data-lucide="check-circle"></i>
+              <span>오프라인 전용 디스플레이 지원</span>
+            </div>
+          </div>
+          <div class="model-card">
+            <div class="icon-box"><i data-lucide="shopping-bag"></i></div>
+            <h3 class="model-card-title">온라인몰 / 큐레이션 플랫폼</h3>
+            <p class="model-card-desc">29CM, 무신사 스토어, 올리브영 등 감각적인 큐레이션 플랫폼과의 제휴를 환영합니다. 브랜드 스토리와 제품 상세 콘텐츠를 제공합니다.</p>
+            <div class="model-card-benefit">
+              <i data-lucide="check-circle"></i>
+              <span>콘텐츠 & 이미지 소스 제공</span>
+            </div>
+          </div>
+          <div class="model-card">
+            <div class="icon-box"><i data-lucide="gift"></i></div>
+            <h3 class="model-card-title">기업 선물 / 웰컴 키트</h3>
+            <p class="model-card-desc">호텔, 에어비앤비, 코워킹 스페이스 등 B2B 채널을 위한 브랜딩 패키지를 제안합니다. 커스텀 라벨 및 메시지 카드 작업 가능합니다.</p>
+            <div class="model-card-benefit">
+              <i data-lucide="check-circle"></i>
+              <span>맞춤 브랜딩 & 대량 할인</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 3: 입점 조건 -->
+    <section class="requirements">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">Requirements</p>
+          <h2 class="section-title">입점 조건 & 지원 사항</h2>
+          <p class="section-desc mx-auto">파트너십의 지속 가능성을 위해 최소 조건과 상호 지원 사항을 안내합니다.</p>
+        </div>
+        <div class="requirements-grid">
+          <div class="requirement-card">
+            <h3 class="requirement-card-title">
+              <div class="icon-box" style="width:40px; height:40px;"><i data-lucide="package" style="width:20px; height:20px;"></i></div>
+              최소 입점 조건
+            </h3>
+            <div class="requirement-list">
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>최소 발주 수량: 100개 이상 (온라인몰), 200개 이상 (오프라인 매장)</span>
+              </div>
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>브랜드 아이덴티티 유지: 제품명, 패키징, 가격 정책 준수</span>
+              </div>
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>정기 발주 계약 선호 (분기별 또는 월별)</span>
+              </div>
+            </div>
+          </div>
+          <div class="requirement-card">
+            <h3 class="requirement-card-title">
+              <div class="icon-box" style="width:40px; height:40px;"><i data-lucide="handshake" style="width:20px; height:20px;"></i></div>
+              언커먼타올 지원 사항
+            </h3>
+            <div class="requirement-list">
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>고해상도 제품 이미지 & 라이프스타일 컷 제공</span>
+              </div>
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>브랜드 스토리 텍스트, 상세페이지 디자인 소스 제공</span>
+              </div>
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>마케팅 캠페인 협업 (시즌 프로모션, SNS 콜라보)</span>
+              </div>
+              <div class="requirement-item">
+                <i data-lucide="check"></i>
+                <span>재고 관리 & 물류 컨설팅 지원</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 4: 제안서 다운로드 -->
+    <section class="download-cta">
+      <div class="container">
+        <h2 class="section-title">입점 제안서 다운로드</h2>
+        <p class="section-desc">언커먼타올의 브랜드 히스토리, 제품 스펙, 마진 구조, 지원 사항을 담은 제안서를 확인하세요.</p>
+        <a href="#" class="btn btn-primary">
+          <i data-lucide="download"></i>
+          제안서 PDF 다운로드
+        </a>
+      </div>
+    </section>
+
+    <!-- 섹션 5: 제휴 문의 폼 -->
+    <section class="inquiry-form">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">Contact Us</p>
+          <h2 class="section-title">제휴 문의하기</h2>
+          <p class="section-desc mx-auto">파트너십 담당자가 검토 후 영업일 기준 2일 이내 회신드립니다.</p>
+        </div>
+        <div class="form-container">
+          <form>
+            <div class="form-group">
+              <label class="form-label">회사명 / 기관명<span class="required">*</span></label>
+              <input type="text" placeholder="예: (주)감각소매, OO백화점" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">담당자 성함<span class="required">*</span></label>
+              <input type="text" placeholder="성함을 입력해주세요" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">이메일<span class="required">*</span></label>
+              <input type="email" placeholder="example@company.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">연락처<span class="required">*</span></label>
+              <input type="tel" placeholder="010-0000-0000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">채널 유형<span class="required">*</span></label>
+              <select required>
+                <option value="">선택해주세요</option>
+                <option value="department">백화점</option>
+                <option value="editshop">편집샵</option>
+                <option value="online">온라인몰</option>
+                <option value="platform">큐레이션 플랫폼</option>
+                <option value="hotel">호텔 / 숙박업</option>
+                <option value="corporate">기업 선물</option>
+                <option value="other">기타</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">예상 발주 수량</label>
+              <input type="text" placeholder="예: 월 200~300개">
+            </div>
+            <div class="form-group">
+              <label class="form-label">문의 내용 / 협업 제안<span class="required">*</span></label>
+              <textarea placeholder="구체적인 협업 방향이나 궁금하신 사항을 자유롭게 작성해주세요." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">제휴 문의 제출하기</button>
+            <p class="form-note">제출하신 정보는 파트너십 검토 목적으로만 사용되며, 별도 동의 없이 제3자에게 제공되지 않습니다.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">뱀부 100% 프리미엄 페이스타월</p>
+          <div class="footer-company-info">
+            상호: 언커먼타올<br>
+            대표: [대표자명]<br>
+            사업자등록번호: [사업자번호]<br>
+            주소: [사무실 주소]<br>
+            전화: [전화번호]<br>
+            이메일: [이메일 주소]
+          </div>
+          <div class="footer-cert">
+            <div class="cert-badge">KC<br>인증<br>1등급</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">브랜드</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_04.html">브랜드 여정</a>
+          <a href="page_05.html">소재 이야기</a>
+          <a href="page_06.html">지속가능성</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">쇼핑</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+          <a href="page_11.html">고객 후기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">고객 지원</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+          <a href="page_09.html">대량구매</a>
+          <a href="page_10.html">파트너십</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Uncommon Towel. All Rights Reserved.</span>
+        <span>
+          <a href="#" style="color:var(--text-muted);">개인정보처리방침</a> | 
+          <a href="#" style="color:var(--text-muted);">이용약관</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="btn-top" id="btnTop">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // TOP 버튼
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
